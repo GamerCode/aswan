@@ -2,7 +2,7 @@
 
 import logging
 
-from risk_models.cache import menu_cache
+from risk_models.drives.base import _used_drives
 
 logger = logging.getLogger(__name__)
 logging.basicConfig()
@@ -27,13 +27,14 @@ def hit_menu(req_body, op_name, event, dimension, menu_type):
         logger.error('req_body(%s) does not contain %s', req_body, dimension)
         return False
 
-    redis_key = build_redis_key(event, dimension, menu_type)
-
-    if not redis_key:
+    if _used_drives.has_key(dimension):
+        drive = _used_drives.get(dimension)
+    elif _used_drives.has_key('*'):
+        #使用默认驱动
+        drive = _used_drives.get('*')
+    else:
+        # 维度不存在，
         return False
 
-    rv = req_body[dimension] in menu_cache[redis_key]
-    if op_name == 'is_not':
-        rv = not rv
-
+    rv = drive.Check(req_body, op_name, event, dimension, menu_type)
     return rv

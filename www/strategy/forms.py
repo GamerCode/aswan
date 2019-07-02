@@ -50,9 +50,14 @@ OP_CHOICES_MENU = (
     ('is_not', u'不在'),
 )
 TYPE_CHOICES_MENU = (
-    (u'black', u'黑名单'),
-    (u'white', u'白名单'),
-    (u'gray', u'灰名单')
+    (u'online-high-risk', u'高风险(实时)'),
+    (u'online-middle-risk', u'中风险(实时)'),
+    (u'online-low-risk', u'低风险(实时)')
+    (u'online-risk-free', u'无风险(实时)')
+    (u'offline-high-risk', u'高风险(历史)'),
+    (u'offline-middle-risk', u'中风险(历史)'),
+    (u'offline-low-risk', u'低风险(历史)')
+    (u'offline-risk-free', u'无风险(历史)')
 )
 
 OP_MAP = dict(OP_CHOICES)
