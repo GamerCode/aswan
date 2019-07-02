@@ -37,8 +37,8 @@ REPORT_REDIS_CONFIG = {
 LOG_MYSQL_CONFIG = {
     'host': '127.0.0.1',
     'port': 3306,
-    'user': 'root',
-    'passwd': 'root',
+    'user': 'aswan',
+    'passwd': 'aswan',
     'charset': 'utf8',
     'db': 'risk_control',
 }
