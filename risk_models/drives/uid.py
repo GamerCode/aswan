@@ -6,4 +6,4 @@ class UidDrive(BaseDrive):
     """ 设备名单驱动 """
 
     def Check(self, req_body, op_name, event, dimension, menu_type):
-        pass
+        return False

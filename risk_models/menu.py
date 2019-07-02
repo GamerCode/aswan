@@ -27,14 +27,19 @@ def hit_menu(req_body, op_name, event, dimension, menu_type):
         logger.error('req_body(%s) does not contain %s', req_body, dimension)
         return False
 
+    #自定义驱动
     if _used_drives.has_key(dimension):
         drive = _used_drives.get(dimension)
-    elif _used_drives.has_key('*'):
-        #使用默认驱动
-        drive = _used_drives.get('*')
-    else:
-        # 维度不存在，
-        return False
+        rv = drive.Check(req_body, op_name, event, dimension, menu_type)
+        if rv:
+            return rv
 
-    rv = drive.Check(req_body, op_name, event, dimension, menu_type)
-    return rv
+    #默认驱动
+    if _used_drives.has_key('*'):
+        drive = _used_drives.get('*')
+        rv = drive.Check(req_body, op_name, event, dimension, menu_type)
+        return rv
+
+    return False
+
+
