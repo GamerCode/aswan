@@ -108,7 +108,7 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = root('media')
 
-STATIC_ROOT = root('site-static')
+STATIC_ROOT = root('static')
 
 STATICFILES_DIRS = (
     root('static'),
@@ -130,7 +130,7 @@ for dir in [parent_dir, PROJECT_DIR]:
 
 from log.logger import logging_config as LOGGING  # noqa
 
-risk_env = os.environ.get('RISK_ENV', 'develop')
+risk_env = os.environ.get('RISK_ENV', 'product')
 
 # 若配置文件不存在，直接无法启动
 try:
