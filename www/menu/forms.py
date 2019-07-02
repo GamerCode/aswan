@@ -18,12 +18,12 @@ MENU_TYPE_CHOICES = (
     (u'', u'全部名单'),
     (u'online-high-risk', u'高风险(实时)'),
     (u'online-middle-risk', u'中风险(实时)'),
-    (u'online-low-risk', u'低风险(实时)')
-    (u'online-risk-free', u'无风险(实时)')
+    (u'online-low-risk', u'低风险(实时)'),
+    (u'online-risk-free', u'无风险(实时)'),
     (u'offline-high-risk', u'高风险(历史)'),
     (u'offline-middle-risk', u'中风险(历史)'),
-    (u'offline-low-risk', u'低风险(历史)')
-    (u'offline-risk-free', u'无风险(历史)')
+    (u'offline-low-risk', u'低风险(历史)'),
+    (u'offline-risk-free', u'无风险(历史)'),
 )
 
 MENU_STATUS_CHOICES = (
