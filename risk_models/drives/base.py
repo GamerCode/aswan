@@ -103,11 +103,3 @@ class DefaultDrive(BaseDrive):
 
         return rv
 
-
-@register_drive("test")
-class Test(BaseDrive):
-    pass
-
-if __name__ == '__main__':
-    print _used_drives
-    print _used_drives.get('test').Check(None,None,None,None,None)
