@@ -93,7 +93,10 @@ class DefaultDrive(BaseDrive):
             return ''
 
     def Check(self, req_body, op_name, event, dimension, menu_type):
+
         redis_key = self.build_redis_key(event, menu_type, dimension)
+        logger.info("default drive key:{}".format(redis_key))
+
         if not redis_key:
             return False
 
