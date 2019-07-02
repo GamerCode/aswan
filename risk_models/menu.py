@@ -27,6 +27,8 @@ def hit_menu(req_body, op_name, event, dimension, menu_type):
         logger.error('req_body(%s) does not contain %s', req_body, dimension)
         return False
 
+    logger.info(op_name, event, dimension, menu_type,req_body)
+    
     #自定义驱动
     if _used_drives.has_key(dimension):
         drive = _used_drives.get(dimension)
