@@ -104,8 +104,10 @@ class Source(object):
     def check_key(self, data):
         for key_name, key_type in self.key_type_map.items():
             if key_name not in data:
+                logger.error("key:{} not in data:{}", key_name, data)
                 return False
             if not isinstance(data[key_name], key_type):
+                logger.error("key:{} value:{} not isinstance:{}", key_name,data[key_name], key_type)
                 return False
         return True
 
