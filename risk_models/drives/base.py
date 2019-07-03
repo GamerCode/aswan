@@ -84,7 +84,7 @@ class DefaultDrive(BaseDrive):
 
     @staticmethod
     def build_redis_key(event, menu_type, dimension):
-        fields = ['menu', event, menu_type, dimension]
+        fields = ['menu', event, dimension, menu_type]
         if all(fields):
             return ':'.join(fields)
         else:
