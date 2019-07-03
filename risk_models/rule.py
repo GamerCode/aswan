@@ -221,10 +221,9 @@ def calculate_rule(id_, req_body, rules=None, ac=None):
             try:
                 ret = func(req_body)
             except Exception:
-                logger.error(
+                logger.exception(
                     'run func error, rule_id: {}, weight: {}'.format(id_,
-                                                                     weight),
-                    exc_info=True)
+                                                                     weight))
                 ret = False
             results.append(ret)
             if not ret:
