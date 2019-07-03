@@ -207,18 +207,18 @@ class Sources(object):
         try:
             self.conn.zadd(zkey, score, member)
         except redis.RedisError:
-            logger.error('zadd(%s, %s, %s) failed', zkey, score, member)
+            logger.error('zadd({}, {}, {}) failed', zkey, score, member)
             return False
 
         try:
             self.conn.expire(zkey, preserve_time)
         except redis.RedisError:
-            logger.error('expire zkey(%s) faield', zkey)
+            logger.error('expire zkey({}) faield', zkey)
 
         try:
             self.conn.zremrangebyrank(zkey, 0, -128)
         except redis.RedisError:
-            logger.error('zremrangebyrank zkey(%s) failed', zkey)
+            logger.error('zremrangebyrank zkey({}) failed', zkey)
         return True
 
     def write_all(self, name, data):

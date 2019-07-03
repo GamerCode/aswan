@@ -106,7 +106,7 @@ class BuiltInFuncs(object):
 
     def __call__(self, req_body, op_name, threshold, **kwargs):
         if not self.check_args(self.run_func.__name__, req_body):
-            logger.error('run %s with invalid req_body(%s)', self, req_body)
+            logger.error('run %s with invalid req_body({})', self, req_body)
             return False
 
         rv = self.run_func(req_body, **kwargs)

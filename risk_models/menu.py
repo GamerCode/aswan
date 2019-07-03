@@ -21,7 +21,7 @@ def build_redis_key(event_code, dimension, menu_type):
 
 def hit_menu(req_body, op_name, event, dimension, menu_type):
     if dimension not in req_body:
-        logger.error('req_body(%s) does not contain %s', req_body, dimension)
+        logger.error('req_body({}) does not contain {}', req_body, dimension)
         return False
 
     logger.info("{},{},{},{},{}".format(op_name, event, dimension, menu_type,req_body))

@@ -170,7 +170,7 @@ class FreqStrategy(Strategy):
         self.query_count += 1
         #  若请求不合法，则默认放过
         if not self.source.check_key(req_body):
-            logger.error('invalid req_body(%s)', req_body)
+            logger.error('invalid req_body({})', req_body)
             return False
 
         zkeys = self.source.get_zkeys(req_body)
@@ -308,7 +308,7 @@ class UserStrategy(Strategy):
         self.query_count += 1
         #  若请求不合法，则默认放过
         if not self.source.check_key(req_body):
-            logger.error('invalid req_body(%s)', req_body)
+            logger.error('invalid req_body({})', req_body)
             return False
 
         zkeys = self.source.get_zkeys(req_body)
@@ -352,7 +352,7 @@ class Strategys(object):
     def load_strategys(self):
         uuid_strategy_map = {}
         conn = get_config_redis_client()
-        logger.info('start load strategys from db, current strategy: %s',
+        logger.info('start load strategys from db, current strategy: {}',
                     self.uuid_strategy_map.keys())
         for strategy_cls in _used_strategies:
             try:
@@ -364,7 +364,7 @@ class Strategys(object):
                 logger.error('load strategys occur redis conn error')
                 return
         self.uuid_strategy_map = uuid_strategy_map
-        logger.info('load strategys success, current strategy: %s',
+        logger.info('load strategys success, current strategy: {}',
                     self.uuid_strategy_map.keys())
 
     def _get_strategy_or_raise(self, uuid_):

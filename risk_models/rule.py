@@ -87,14 +87,14 @@ class Rules(object):
         try:
             end_time = datetime.strptime(d['end_time'], '%Y-%m-%d %H:%M:%S')
         except ValueError:
-            logger.error('get invalid rule data %s', d)
+            logger.error('get invalid rule data {}', d)
             return False
         return status == 'on' and end_time > datetime.now()
 
     def load_rules(self):
         id_rule_map = {}
         conn = get_config_redis_client()
-        logger.info('start load rules, current rule ids: %s',
+        logger.info('start load rules, current rule ids: {}',
                     self.id_rule_map.keys())
         try:
             for name in conn.scan_iter(match='rule:*'):
@@ -106,7 +106,7 @@ class Rules(object):
             logger.error('load rules occur redis conn error')
             return
         self.id_rule_map = id_rule_map
-        logger.info('load rules success, current rule ids: %s',
+        logger.info('load rules success, current rule ids: {}',
                     self.id_rule_map.keys())
 
     def refresh(self):
