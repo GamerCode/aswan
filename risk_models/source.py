@@ -3,7 +3,6 @@
 import json
 import time
 import random
-import logging
 from collections import defaultdict
 
 import redis
@@ -12,7 +11,7 @@ import gevent
 import config as conf
 from clients import get_config_redis_client, get_report_redis_client
 
-logger = logging.getLogger(__name__)
+from loguru import logger
 
 _used_source_cls_set = set()
 

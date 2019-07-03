@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import json
-import logging
 from core.lru import LRUCacheDict
 
 from django.shortcuts import redirect
@@ -10,7 +9,7 @@ from django.core.exceptions import PermissionDenied
 from log_manage.signals import user_visit
 from permissions.permission import UserPermission, DBError
 
-LOGGER = logging.getLogger(__name__)
+from loguru import logger
 
 
 class AlwaysInContainer(object):
@@ -78,7 +77,7 @@ class PermissionsMiddleware(object):
                 CACHE_USER_PERMS[pk] = result
             return result
         except DBError:
-            LOGGER.error(u'Failed get user permissions ({}-{}) for DB error!'
+            logger.error(u'Failed get user permissions ({}-{}) for DB error!'
                          .format(user.pk, user.fullname))
             return WHITE_LIST_URIS
 

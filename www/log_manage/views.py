@@ -1,5 +1,5 @@
 # coding=utf8
-import logging
+
 from datetime import timedelta
 
 from braces.views import JSONResponseMixin
@@ -12,7 +12,7 @@ from django.views.generic import View
 from log_manage.tables import HitLogDetailTable, AuditLogTable
 from log_manage.forms import HitLogDetailFilterForm, AuditLogForm
 
-logger = logging.getLogger(__name__)
+from loguru import logger
 
 
 class HitListDetailView(ListView):

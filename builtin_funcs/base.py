@@ -1,13 +1,12 @@
 # coding=utf8
 
-import logging
+
 from functools import wraps
 import operator
 
 from risk_models.exceptions import BuiltInFuncNotExistError
 
-logger = logging.getLogger(__name__)
-logging.basicConfig()
+from loguru import logger
 
 
 class BuiltInFuncs(object):

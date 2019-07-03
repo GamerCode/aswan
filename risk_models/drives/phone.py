@@ -1,5 +1,6 @@
 # coding=utf8
 from base import register_drive, BaseDrive
+from loguru import logger
 
 @register_drive("phone")
 class PhoneDrive(BaseDrive):

@@ -3,7 +3,6 @@ from __future__ import unicode_literals
 import re
 import time
 import math
-import logging
 from datetime import datetime
 from functools import partial, wraps
 from collections import defaultdict
@@ -15,7 +14,7 @@ from builtin_funcs import BuiltInFuncs
 from risk_models.source import FreqSource, UserSource
 from clients import get_report_redis_client, get_config_redis_client
 
-logger = logging.getLogger(__name__)
+from loguru import logger
 
 
 def partial_bind_uuid(f):

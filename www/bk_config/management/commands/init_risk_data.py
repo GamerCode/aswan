@@ -4,7 +4,6 @@
     本脚本用于在用户不熟悉时预注数据
 """
 
-import logging
 import hashlib
 
 from django.core.management.base import BaseCommand
@@ -16,8 +15,8 @@ from strategy.init_data import (create_menu_strategy, create_bool_strategy,
                                 create_freq_strategy, create_user_strategy)
 from rule.init_data import create_rule
 
-logger = logging.getLogger(__name__)
-logging.basicConfig()
+from loguru import logger
+
 
 
 class Command(BaseCommand):

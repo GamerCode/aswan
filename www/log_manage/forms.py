@@ -1,6 +1,6 @@
 # coding=utf8
 
-import logging
+
 from datetime import datetime, timedelta, date
 
 from django import forms
@@ -10,7 +10,7 @@ from core.forms import BaseFilterForm
 from log_manage.models import AuditLogModel
 from risk_models.rule import Rules
 
-logger = logging.getLogger(__name__)
+from loguru import logger
 
 CONTROL_CHOICES = (
     (u'所有', u"所有管控原子"),

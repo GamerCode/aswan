@@ -2,7 +2,6 @@
 
 import time
 import json
-import logging
 from datetime import datetime
 
 from django.core.management.base import BaseCommand
@@ -12,7 +11,7 @@ from config import HIT_LOG_QUEUE_NAME
 from clients import get_log_redis_client
 from log_manage.models import get_hit_log_model
 
-logger = logging.getLogger(__name__)
+from loguru import logger
 
 table_cls_map = {}
 

@@ -15,8 +15,7 @@ from log import hit_logger
 from risk_models.exceptions import RuleNotExistsException
 from risk_models.strategy import Strategys
 from clients import get_config_redis_client
-
-logger = logging.getLogger(__name__)
+from loguru import logger
 
 strategys = Strategys()
 
