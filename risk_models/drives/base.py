@@ -81,7 +81,7 @@ class DefaultDrive(BaseDrive):
     menu_cache = Cache(scan_key="menu:*")
 
     @staticmethod
-    def build_redis_key(self, event, menu_type, dimension):
+    def build_redis_key(event, menu_type, dimension):
         fields = ['menu', event, menu_type, dimension]
         if all(fields):
             return ':'.join(fields)
