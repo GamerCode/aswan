@@ -6,7 +6,9 @@ import gevent
 from clients.redis_client import get_config_redis_client
 from loguru import logger
 
+
 _used_drives = dict()
+
 
 def register_drive(dimension):
     def wrapper(cls):

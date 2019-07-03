@@ -2,7 +2,7 @@
 
 from loguru import logger
 
-from risk_models.drives.base import _used_drives
+from risk_models.drives import *
 
 
 def build_redis_key(event_code, dimension, menu_type):
