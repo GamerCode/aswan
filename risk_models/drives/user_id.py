@@ -1,5 +1,5 @@
 # coding=utf8
-from base import register_drive, BaseDrive
+from .base import register_drive, BaseDrive
 from loguru import logger
 
 @register_drive("user_id")
